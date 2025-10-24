@@ -1,0 +1,1 @@
+print("Sergio Ramos dijo: Cuando éramos pequeños a algunos amigos les gustaba el baloncesto, a otros el basket...")
