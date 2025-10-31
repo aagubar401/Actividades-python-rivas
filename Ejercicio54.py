@@ -24,10 +24,11 @@ class Empleado:
         return self.__DNI
     def detalles_empleado(self):
         return f"Nombre: {self.__Nombre}, Salario: {self.__Salario}, DNI: {self.__DNI}"
-    def salario_promedio(cls):
-        return sum(Empleado.salario_medio) / len(Empleado.salario_medio)
     def __del__(self):
         print(f"Empleado {self.__Nombre} con DNI {self.__DNI} ha sido eliminado.")
+    @classmethod
+    def salario_promedio(cls):
+        return sum(Empleado.salario_medio) / len(Empleado.salario_medio)
 
 class Gerente(Empleado):
     def __init__(self, nombre, salario, dni, departamento):
@@ -45,6 +46,7 @@ class Gerente(Empleado):
         nuevo_salario = self.GetSalario() - descuento
         self.SetSalario(nuevo_salario)
         return nuevo_salario
+    @staticmethod
     def impuesto(salario):
         impuesto = salario * 0.21
         return impuesto
