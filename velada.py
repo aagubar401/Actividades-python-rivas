@@ -113,7 +113,7 @@ def agregar_artista(evento, nombre, *temas):
     artista = Artista(nombre, lista_temas)
     diccionario_artista = {}
     diccionario_artista["nombre"] = artista
-    diccionario_artista["setlist"] = artista.mostrar_lista_temas()
+    diccionario_artista["setlist"] = artista.mostrar_lista_temas().copy()
     if diccionario_artista in evento["artistas"]:
         del evento["artistas"][diccionario_artista]
         print("Artista borrado correctamente y listo para reemplazar")
@@ -185,17 +185,12 @@ def informe_completo(evento):
     print("Luchadores inscritos: ", end="\n")
     for luchador in luchadores:
         print(f"     - {luchador}", end="\n")
-    print("Artistas y canciones: ", end="\n")
-    artistas = []
-    for artista in evento["artistas"]:
-        artistas.append(artista["nombre"])
-    for artista in artistas:
-        print(f"*{artista.nombre}", end="\n")
-        for artista_evento in evento["artistas"]:
-            if artista_evento["nombre"] == artista:
-                lista_temas_artista = artista_evento["setlist"]
-            for tema in lista_temas_artista:
-                print(f"     - {tema.titulo}", end="\n")
+    print("Artistas y canciones: ")
+    for artista_evento in evento["artistas"]:
+        artista = artista_evento["nombre"]
+        print(f"*{artista.nombre}")
+        for tema in artista_evento["setlist"]:
+            print(f"     - {tema.titulo}")
     print("Tipos de entradas: ", end="\n")
     for entrada in list(evento["entradas"]["tipos"].keys()):
         print(f"     - {entrada}: {evento["entradas"]["tipos"][entrada]}", end="\n")
