@@ -38,12 +38,12 @@ evento = {
 class Persona:
     total_objetos = 0
     def __init__(self, nombre):
-        self._nombre = nombre
+        self.nombre = nombre
         Persona.total_objetos += 1
     def __str__(self):
-        return f"{self._nombre}"
+        return f"{self.nombre}"
     def __repr__(self):
-        return f"{self._nombre}"
+        return f"{self.nombre}"
     @classmethod
     def contar(cls):
         return f"{cls.total_objetos}"
@@ -52,14 +52,14 @@ class Luchador(Persona):
     total_objetos = 0
     def __init__(self, nombre, peso):
         super().__init__(nombre)
-        self._peso = peso
+        self.peso = peso
         Luchador.total_objetos += 1
     def __str__(self):
-        return f"{self._nombre}"
+        return f"{self.nombre}"
     def __repr__(self):
-        return f"{self._nombre}"
+        return f"{self.nombre}"
     def __eq__(self, otro_luchador):
-        return self._nombre == otro_luchador._nombre
+        return self.nombre == otro_luchador.nombre
     @classmethod
     def contar(cls):
         return f"{cls.total_objetos}"
@@ -68,14 +68,14 @@ class Artista(Persona):
     total_objetos = 0
     def __init__(self, nombre, temas):
         super().__init__(nombre)
-        self._temas = temas
+        self.temas = temas
         Artista.total_objetos += 1
     def __str__(self):
-        return f"{self._nombre}"
+        return f"{self.nombre}"
     def __repr__(self):
-        return f"{self._nombre}"
+        return f"{self.nombre}"
     def mostrar_lista_temas(self):
-        return self._temas
+        return self.temas
     @classmethod
     def contar(cls):
         return f"{cls.total_objetos}"
@@ -83,12 +83,12 @@ class Artista(Persona):
 class Tema:
     total_objetos = 0
     def __init__(self, titulo):
-        self._titulo = titulo
+        self.titulo = titulo
         Tema.total_objetos += 1
     def __str__(self):
-        return f"{self._titulo}"
+        return f"{self.titulo}"
     def __repr__(self):
-        return f"{self._titulo}"
+        return f"{self.titulo}"
     @classmethod
     def contar(cls):
         return f"{cls.total_objetos}"
